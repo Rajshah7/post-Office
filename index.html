@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Post Office Application</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         INITIAL / WELCOME SCREEN
+    ========================== -->
+
+    <section id="welcomeSection" class="welcome-section">
+
+        <!-- Left side -->
+        <div class="welcome-left">
+
+            <h1>Post Office Application.</h1>
+
+            <p>
+                This Application Allows you to extract information about
+                the nearest Post Offices, based on your location.
+            </p>
+
+            <div class="illustration-container">
+                <img
+                    src="https://illustrations.popsy.co/gray/delivery.svg"
+                    alt="Post office delivery"
+                >
+            </div>
+
+        </div>
+
+
+        <!-- Right side -->
+        <div class="welcome-right">
+
+            <p class="current-ip-text">
+                Your Current IP Address is
+                <strong id="initialIp">Loading...</strong>
+            </p>
+
+            <button id="getStartedBtn">
+                Get Started
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         RESULT SCREEN
+    ========================== -->
+
+    <section id="resultSection" class="result-section hidden">
+
+        <!-- Error -->
+        <div id="errorBox" class="error-box hidden"></div>
+
+
+        <!-- =========================
+             IP INFORMATION
+        ========================== -->
+
+        <section class="ip-section">
+
+            <h2>
+                IP Address :
+                <span id="ipAddress">-</span>
+            </h2>
+
+            <div class="ip-details">
+
+                <div>
+                    <p>
+                        <strong>Lat:</strong>
+                        <span id="latitude">-</span>
+                    </p>
+
+                    <p>
+                        <strong>Long:</strong>
+                        <span id="longitude">-</span>
+                    </p>
+                </div>
+
+
+                <div>
+                    <p>
+                        <strong>City:</strong>
+                        <span id="city">-</span>
+                    </p>
+
+                    <p>
+                        <strong>Region:</strong>
+                        <span id="region">-</span>
+                    </p>
+                </div>
+
+
+                <div>
+                    <p>
+                        <strong>Organisation:</strong>
+                        <span id="organisation">-</span>
+                    </p>
+
+                    <p>
+                        <strong>Hostname:</strong>
+                        <span id="hostname">-</span>
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             MAP
+        ========================== -->
+
+        <section class="map-section">
+
+            <h2>Your Current Location</h2>
+
+            <div class="map-container">
+
+                <iframe
+                    id="mapFrame"
+                    title="Current Location"
+                    src="about:blank"
+                    loading="lazy">
+                </iframe>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             MORE INFORMATION
+        ========================== -->
+
+        <section class="information-section">
+
+            <h2>More Information About You</h2>
+
+            <div class="user-information">
+
+                <p>
+                    <strong>Time Zone:</strong>
+                    <span id="timezone">-</span>
+                </p>
+
+                <p>
+                    <strong>Date And Time:</strong>
+                    <span id="dateTime">-</span>
+                </p>
+
+                <p>
+                    <strong>Pincode:</strong>
+                    <span id="pincode">-</span>
+                </p>
+
+                <p>
+                    <strong>Message:</strong>
+                    <span id="pincodeMessage">-</span>
+                </p>
+
+            </div>
+
+
+            <!-- =========================
+                 POST OFFICES
+            ========================== -->
+
+            <h2 class="post-office-title">
+                Post Offices Near You
+            </h2>
+
+
+            <!-- Search -->
+            <div class="search-container">
+
+                <span class="search-icon">⌕</span>
+
+                <input
+                    id="searchInput"
+                    type="text"
+                    placeholder="Search By Name"
+                >
+
+            </div>
+
+
+            <p id="resultCount" class="result-count"></p>
+
+
+            <!-- Cards -->
+            <div
+                id="postOfficeGrid"
+                class="post-office-grid">
+            </div>
+
+
+            <p
+                id="noResults"
+                class="no-results hidden">
+                No post offices found.
+            </p>
+
+        </section>
+
+    </section>
+
+
+    <!-- =========================
+         LOADING
+    ========================== -->
+
+    <div id="loadingOverlay" class="loading-overlay hidden">
+
+        <div class="loader"></div>
+
+        <p>
+            Fetching your location...
+        </p>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
